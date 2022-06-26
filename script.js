@@ -1,39 +1,37 @@
 function getRandomNumber() {
-    return Math.floor(Math.random() * 3);
+  return Math.floor(Math.random() * 3);
 } 
 
 function computerPlay () {
-    let playNumber = getRandomNumber();
+  let playNumber = getRandomNumber();
 
-    switch (playNumber) {
-        case 0:
-            return "rock";
-            break;
-        case 1:
-            return "paper"
-            break;
-        case 2:
-            return "scissors"
-            break;
+  switch (playNumber) {
+    case 0:
+      return "Rock";
+      break;
+    case 1:
+      return "Paper"
+      break;
+    case 2:
+      return "Scissors"
+      break;
     }
 }
 
+function formatWord(wordToFormat) {
+  return wordToFormat.charAt(0).toUpperCase() + wordToFormat.slice(1).toLowerCase();
+}
+
 function roundPlay(playerSelection, computerSelection) {
-    if(playerSelection.toLowerCase() === "rock" && computerSelection === "paper") {
-        return "You lose! Paper beats Rock";
-    } else if(playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
-        return "You win! Rock beats Scissors";
-    } else if(playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
-        return "You win! Paper beats Rock";
-    } else if(playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
-        return "You lose! Scissors beat Paper";
-    } else if(playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
-        return "You win! Scissors beat Paper";
-    } else if(playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
-        return "You lose! Rock beats Scissors"
-    } else {
-        return "Tie game!";
-    }
+  if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+    return "Tie game!";
+    } else if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') ||
+               (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock') ||
+               (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper')) {
+                return `You win! ${formatWord(playerSelection)} beats ${formatWord(computerSelection)}`;
+               } else {
+                return `You lose! ${formatWord(computerSelection)} beats ${formatWord(playerSelection)}`;
+               }
 }
 
 function game() {
