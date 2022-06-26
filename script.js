@@ -7,13 +7,13 @@ function computerPlay () {
 
   switch (playNumber) {
     case 0:
-      return "Rock";
+      return 'Rock';
       break;
     case 1:
-      return "Paper"
+      return 'Paper';
       break;
     case 2:
-      return "Scissors"
+      return "Scissors";
       break;
     }
 }
@@ -24,7 +24,7 @@ function formatWord(wordToFormat) {
 
 function roundPlay(playerSelection, computerSelection) {
   if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-    return "Tie game!";
+    return 'Tie game!';
     } else if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') ||
                (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock') ||
                (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper')) {
