@@ -35,6 +35,11 @@ img {
   width: 200px;
 }
 
+img:hover {
+  -webkit-filter: brightness(80%);
+  transition: 0.5s;
+}
+
 #rock-button, #paper-button, #scissors-button {
   display: inline-block;
   padding: 0;
