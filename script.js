@@ -4,10 +4,19 @@ const scissorsButton = document.getElementById('scissors-button');
 const compStats = document.getElementById('computer-score');
 const playerStats = document.getElementById('player-score');
 const resultsStringElem = document.getElementById('choose-text');
+const modalOkButton = document.getElementById('modal-ok');
+const modal = document.getElementById('end-game-modal');
+const winTextModal = document.getElementById('win-text');
 
 rockButton.addEventListener('click', () => buttonHandle('rock'));
 paperButton.addEventListener('click', () => buttonHandle('paper'));
 scissorsButton.addEventListener('click', () => buttonHandle('scissors'));
+
+modalOkButton.onclick = function() {
+  modal.style.display = 'none';
+  clearScore();
+  resultsStringElem.innerHTML = 'Choose carefully!';
+}
 
 function buttonHandle(playerSelection) {
   const computerSelection = computerPlay();
@@ -54,9 +63,8 @@ function clearScore() {
 
 function checkForWin(score, winner) {
   if (score == 5) {
-    confirm(`${winner} won! Play again?`);
-    clearScore();
-    resultsStringElem.innerHTML = 'Choose carefully!';
+    modal.style.display = 'block';
+    winTextModal.innerHTML = `${winner} won! Play again?`;
   }
 }
 
