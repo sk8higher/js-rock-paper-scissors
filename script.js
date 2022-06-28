@@ -3,6 +3,7 @@ const paperButton = document.getElementById('paper-button');
 const scissorsButton = document.getElementById('scissors-button');
 const compStats = document.getElementById('computer-score');
 const playerStats = document.getElementById('player-score');
+const resultsStringElem = document.getElementById('choose-text');
 
 rockButton.addEventListener('click', () => buttonHandle('rock'));
 paperButton.addEventListener('click', () => buttonHandle('paper'));
@@ -34,15 +35,33 @@ function computerPlay () {
 }
 
 function changeResults(winner) {
-  if(winner === 'comp') {
-    ++compStats.innerHTML;
-  } else if(winner === 'player') {
-    ++playerStats.innerHTML;
+  switch (winner) {
+    case 'comp':
+      ++compStats.innerHTML;
+      checkForWin(compStats.innerHTML, 'Computer')
+      break;
+    case 'player':
+      ++playerStats.innerHTML;
+      checkForWin(playerStats.innerHTML, 'You')
+      break;
+  }
+}
+
+function clearScore() {
+  compStats.innerHTML = 0;
+  playerStats.innerHTML = 0;
+}
+
+function checkForWin(score, winner) {
+  if (score == 5) {
+    confirm(`${winner} won! Play again?`);
+    clearScore();
+    resultsStringElem.innerHTML = 'Choose carefully!';
   }
 }
 
 function showResults(resultsString) {
-  document.getElementById('choose-text').innerHTML = resultsString;
+   resultsStringElem.innerHTML = resultsString;
 }
 
 function formatWord(wordToFormat) {
