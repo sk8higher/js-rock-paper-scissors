@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+* {
+  font-family: 'IBM Plex Mono';
+}
+
 #header-text {
   text-align: center;
 }
@@ -21,4 +27,17 @@
 
 #choose-text {
   text-align: center;
+}
+
+img {
+  display: block;
+  height: 200px;
+  width: 200px;
+}
+
+#rock-button, #paper-button, #scissors-button {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 2px solid black;
 }
